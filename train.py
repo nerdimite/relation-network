@@ -51,8 +51,7 @@ def train(model, rel, norel, args):
             loss_norels.append(norel_loss.item())
         
         # Save checkpoint
-        if epoch+1 % 5 == 0:
-            model.save_model(epoch+1)
+        model.save_model(epoch+1)
         
         mean_rel_acc = np.array(acc_rels).mean()
         mean_norel_acc = np.array(acc_norels).mean()        
@@ -136,7 +135,7 @@ if __name__ == '__main__':
     
     # Create './models' directory for saving weights
     try:
-        os.makedirs('models')
+        os.mkdir('models')
     except:
         pass
     
