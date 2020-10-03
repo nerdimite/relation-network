@@ -157,7 +157,7 @@ class RNModel(BaseLayer):
     
     def forward(self, img, ques):
         '''Forward pass through the full Relation Network Augmented model'''
-        x = self.conv_input(img) # (1, 24, 5, 5)
+        x = self.conv_input(img) # (b, 24, 5, 5)
         x_g = self.rel_layer(x, ques)
         x_f = F.relu(self.f_fc1(x_g))
         x_f = F.relu(self.f_fc2(x_f))
